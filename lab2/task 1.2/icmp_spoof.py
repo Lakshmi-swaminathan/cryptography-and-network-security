@@ -1,10 +1,9 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 from scapy.all import *
-print('Sending spoofed icmp packet')
-a = IP()
-a.dst = '10.0.2.3' 
-b = ICMP()
-a.show()
-b.show() 
-p = a/b 
-send(p)
+
+print("SENDING SPOOFED ICMP PACKET.........")
+ip = IP(src="1.2.3.4", dst="93.184.216.34") 
+icmp = ICMP()                               
+pkt = ip/icmp                                
+pkt.show()
+send(pkt,verbose=0)  
